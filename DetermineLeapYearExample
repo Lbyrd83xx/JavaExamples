@@ -1,0 +1,40 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class DetermineLeapYearExample {
+ 
+        public static void main(String[] args) {
+               
+                //year we want to check
+                int year = 0;
+				System.out.println("Enter a year in YYYY format.");
+				//use try catch to take in year
+				 try
+                {      
+                        //take input from console
+                        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+                        //parse the line into int
+                        year = Integer.parseInt(br.readLine());
+       
+                }
+                catch(NumberFormatException ne)
+                {
+                        System.out.println("Invalid input: " + ne);
+                        System.exit(0);
+                }
+                catch(IOException ioe)
+                {
+                        System.out.println("I/O Error: " + ioe);
+                        System.exit(0);
+                }
+               
+                //if year is divisible by 4, it is a leap year
+               
+                if((year % 400 == 0) || ((year % 4 == 0) && (year % 100 != 0)))
+                        System.out.println("Year " + year + " is a leap year");
+                else
+                        System.out.println("Year " + year + " is not a leap year");
+        }
+}
+ 
